@@ -3,7 +3,7 @@
     margin: 0%;
 }
 .heading{
-    font-size: 150;
+    font-size: 50px;
     padding: 30px;
     font-style: italic;
     text-align: center;
@@ -14,7 +14,7 @@
 body{
     background-color: aqua;
 }
-ul{
+nav ul{
     list-style: none;
     display: flex;
     justify-content: center;
@@ -23,5 +23,5 @@ ul{
 .he{
     text-align: center;
     color: blueviolet;
-    font-size: 50px;
+    font-size: 30px;
 }
