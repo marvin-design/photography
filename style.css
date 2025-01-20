@@ -15,7 +15,7 @@ nav ul{
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
 }
 .he{
     text-align: center;
