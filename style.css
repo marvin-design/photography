@@ -32,10 +32,41 @@ header {
   max-width: 400px;
   margin: 20px auto;
 }
+
+#ramen-menu img {
+  width: 100px;
+  height: auto;
+  border-radius: 10px;
+}
+
+#ramen-menu img:nth-child(1) {
+  width: 60px;
+}
+
+#ramen-menu img:nth-child(2) {
+  width: 150px;
+}
+
+#ramen-menu img:nth-child(3) {
+  grid-column: span 2;
+  justify-self: center;
+}
+
+#ramen-detail {
+  text-align: center;
+  margin: 20px auto;
+  max-width: 600px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#ramen-detail img {
   width: 150px;
   height: auto;
   border-radius: 10px;
-
+}
 
 #new-ramen-form {
   background-color: white;
