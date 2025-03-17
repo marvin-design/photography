@@ -1,73 +1,53 @@
-document.addEventListener("DOMContentLoaded", () => {
-  main();
-});
-
-// Stub data
 const ramens = [
-  { id: 1, name: "Shoyu Ramen", restaurant: "Ichiran", image: "./shoyu.webp", rating: 5, comment: "Delicious!" },
-  { id: 2, name: "Miso Ramen", restaurant: "Menya", image: "./miso.webp", rating: 4, comment: "Very flavorful!" },
-  { id: 3, name: "Tonkotsu Ramen", restaurant: "Ramen-ya", image: "./tonkotsu.jpg", rating: 0, comment: "No rating yet." }
+  { id: 1, name: "Shoyu Ramen", restaurant: "Ichiran", image: "images/1.webp", rating: 5, comment: "Delicious!" },
+  { id: 2, name: "Miso Ramen", restaurant: "Menya", image: "images/2.webp", rating: 4, comment: "Very flavorful!" },
+  { id: 3, name: "Tonkotsu Ramen", restaurant: "Ramen-ya", image: "images/3.webp", rating: 3, comment: "Nice and creamy!" }
 ];
 
-// Function to display all ramens
+// Display ramen images
 function displayRamens() {
-  const ramenMenu = document.querySelector("#ramen-menu");
-  ramenMenu.innerHTML = ""; // Clear previous content
-
+  const ramenMenu = document.getElementById('ramen-menu');
   ramens.forEach(ramen => {
-    const img = document.createElement("img");
+    const img = document.createElement('img');
     img.src = ramen.image;
-    img.alt = ramen.name;
-    img.addEventListener("click", () => handleClick(ramen));
+    img.addEventListener('click', () => handleClick(ramen));
     ramenMenu.appendChild(img);
   });
-
-  // Show first ramen by default
-  if (ramens.length > 0) {
-    handleClick(ramens[0]);
-  }
 }
 
-// Function to display ramen details when clicked
+// Handle ramen click
 function handleClick(ramen) {
-  const detailImage = document.querySelector("#ramen-image");
-  const ramenName = document.querySelector("#ramen-name");
-  const restaurant = document.querySelector("#restaurant-name");
-  const rating = document.querySelector("#rating");
-  const comment = document.querySelector("#comment");
-
-  detailImage.src = ramen.image;
-  ramenName.textContent = ramen.name;
-  restaurant.textContent = ramen.restaurant;
-  rating.textContent = ramen.rating;
-  comment.textContent = ramen.comment || "No comments yet.";
+  document.getElementById('ramen-name').textContent = ramen.name;
+  document.getElementById('restaurant-name').textContent = ramen.restaurant;
+  document.getElementById('ramen-image').src = ramen.image;
+  document.getElementById('rating').textContent = ramen.rating;
+  document.getElementById('comment').textContent = ramen.comment;
 }
 
-// Function to handle new ramen submission
+// Add new ramen
 function addSubmitListener() {
-  const form = document.querySelector("#new-ramen-form");
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-
+  const form = document.getElementById('new-ramen-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
     const newRamen = {
-      id: ramens.length + 1,
-      name: event.target["new-name"].value,
-      restaurant: event.target["new-restaurant"].value,
-      image: event.target["new-image"].value,
-      rating: event.target["new-rating"].value || 0,
-      comment: event.target["new-comment"].value || "No comments yet."
+      name: document.getElementById('new-name').value,
+      restaurant: document.getElementById('new-restaurant').value,
+      image: document.getElementById('new-image').value,
+      rating: document.getElementById('new-rating').value,
+      comment: document.getElementById('new-comment').value
     };
-
-    // Add to the array
     ramens.push(newRamen);
-
-    // Re-display the ramen images
-    displayRamens();
-
-    // Reset the form
+    displayNewRamen(newRamen);
     form.reset();
   });
+}
+
+// Display new ramen added
+function displayNewRamen(ramen) {
+  const img = document.createElement('img');
+  img.src = ramen.image;
+  img.addEventListener('click', () => handleClick(ramen));
+  document.getElementById('ramen-menu').appendChild(img);
 }
 
 // Initialize app
@@ -75,3 +55,5 @@ function main() {
   displayRamens();
   addSubmitListener();
 }
+
+document.addEventListener('DOMContentLoaded', main);
