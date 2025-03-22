@@ -11,6 +11,7 @@ header {
   padding: 20px 0;
 }
 
+/* Header Image Styling */
 .header-img {
   display: flex;
   justify-content: center;
@@ -23,35 +24,24 @@ header {
   border-radius: 10px;
 }
 
-/* Ramen Menu Grid */
+/* Ramen Menu Grid - Fixed for uniform image sizes */
 #ramen-menu {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  display: flex;
   justify-content: center;
-  max-width: 400px;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 600px;
   margin: 20px auto;
 }
 
 #ramen-menu img {
-  width: 100px;
+  width: 150px; /* Ensures all ramen menu images match selected ramen */
   height: auto;
   border-radius: 10px;
+  cursor: pointer;
 }
 
-#ramen-menu img:nth-child(1) {
-  width: 60px;
-}
-
-#ramen-menu img:nth-child(2) {
-  width: 150px;
-}
-
-#ramen-menu img:nth-child(3) {
-  grid-column: span 2;
-  justify-self: center;
-}
-
+/* Ramen Detail Section */
 #ramen-detail {
   text-align: center;
   margin: 20px auto;
@@ -63,11 +53,12 @@ header {
 }
 
 #ramen-detail img {
-  width: 150px;
+  width: 150px; /* Matches menu images */
   height: auto;
   border-radius: 10px;
 }
 
+/* Form Styling */
 #new-ramen-form {
   background-color: rgb(63, 60, 60);
   padding: 20px;
